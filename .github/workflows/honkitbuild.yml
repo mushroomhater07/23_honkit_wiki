@@ -38,18 +38,14 @@ jobs:
       - name: Run a multi-line script
         run: |
           npx honkit build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: "_book" 
       #- name: Deploy 🚀
        # uses: JamesIves/github-pages-deploy-action@v4
        # with:
        #   folder: _book
 #       - name: Upload artifact
 #         uses: actions/upload-pages-artifact@v1
-  deploy:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Checkout action
-        uses: actions/checkout@v2
-      - name: Gitbook Action           # https://github.com/ZanderZhao/gitbook-action/releases
-        uses: ZanderZhao/gitbook-action@v1.2.4  # -> or ZanderZhao/gitbook-action@master.  If not use master click above, use latest please 
-        with:                                   #    or fork this repo and use YourName/gitbook-action@master
-          token: ${{ secrets.PERSONAL_TOKEN }} 
