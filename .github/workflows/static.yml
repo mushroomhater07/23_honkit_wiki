@@ -24,6 +24,9 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -41,12 +44,6 @@ jobs:
         run: |
           npx honkit serve
           
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
