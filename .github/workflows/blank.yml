@@ -42,8 +42,8 @@ jobs:
        # uses: JamesIves/github-pages-deploy-action@v4
        # with:
        #   folder: _book
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v1
   deploy:
     environment:
       name: github-pages
